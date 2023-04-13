@@ -1,0 +1,5 @@
+.headerIcon{
+    height: 25px !important;
+    width: 25px !important;
+    object-fit: contain;
+}
