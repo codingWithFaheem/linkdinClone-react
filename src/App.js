@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
+ import Sidebar from './component/Main/SideBar/SideBar';
+ import Feed from './component/Main/Feed/Feed';
 import Header from './component/Top/Header';
-import Sidebar from './component/Main/SideBar/SideBar';
-import Feed from './component/Main/Feed/Feed';
 
 function App() {
   return (
@@ -17,7 +17,8 @@ function App() {
                    {/*== SideBar == */}
 
                    {/*== Feed Feild  Post Sec == */}
-                        <Feed />
+                          <Feed />
+                   {/*== Feed Feild  Post Sec == */}
               </div>
     </div>
   );

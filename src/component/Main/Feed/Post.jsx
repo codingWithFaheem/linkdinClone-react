@@ -1,14 +1,15 @@
 import { Avatar } from '@mui/material'
 import React from 'react'
 import {ThumbUpOffAlt, Comment , Autorenew , Send}  from '@mui/icons-material'
-const Post = ({name , description , message , PfImage }) => {
+import PostBtn from './PostBtn'
+const Post = ({name , description , message , image }) => {
   return (
     <div className=' bg-white  ml-s4 rounded-xsl'> 
 
                 {/* ======= Post Header */}
                 <div className=" flex  items-center p-4 w-full cursor-pointer">
                         <Avatar  className=' rounded-4xl cursor-pointer' 
-                        src={PfImage}
+                        src={image}
                         />
                              {/* ====== Post Info ====== */}
                     <div className=' leading-4 ml-2 flex flex-col items-start'>

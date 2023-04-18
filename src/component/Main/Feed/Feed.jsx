@@ -1,9 +1,57 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react';
 import FeedOptions from './FeedOptions'
 import { Avatar } from '@mui/material';
 import { Create, Image ,SmartDisplay ,DateRange , Newspaper } from '@mui/icons-material'
-
+import { collection, getDocs} from 'firebase/firestore';
+import Post from './Post';
+import { db } from '../../config/firebase';
 const Feed = () => {
+  const [posts , setPosts ] = useState([]);
+  const [input ,setInput] = useState('');
+  const postItemRef = collection(db,"posts")
+  
+  useEffect(()=> {
+    const getPostData = async () => {
+      try{
+         const data =  await  getDocs(postItemRef)
+         const filterData = data.docs.map((doc) => {
+            const  data = doc.data() ;
+            return {
+                  name :data.name ,
+                  description : data.description ,
+                  image: data.image,
+                  message : data.message  
+  
+            }
+         })
+         setPosts(filterData) 
+  
+            
+      }
+      catch (err){
+        console.error(err) ;
+      }
+    }
+    getPostData()
+   },[])
+ 
+//   const sendPost = async (e) => {
+//     e.preventDefault(e)
+//       try{
+//       await addDoc(postItemRef , {
+//         name: 'Ramzan Magsi',
+//               description:'Frontend | React Next Typscript Developer ' ,
+//               image:"https://i.pinimg.com/564x/20/57/6e/20576e2fea1a3eb2b760dfb6d846d7d8.jpg",
+//               message: input ,
+//       }) 
+//       getPostData()
+//   }
+//   catch (err) {
+//       console.error(err)
+//   }
+//   setInput("")
+  
+// }
   return (
     <div className=' border- border-[#123] '>
 
@@ -21,7 +69,7 @@ const Feed = () => {
                                                      type="text"
                                                     //  onChange={e => setInput(e.target.value)}
                                                      />
-                                              <button  type="submit" className=' hidden'>Send</button>
+                                              <button   type="submit" className=' hidden'>Send</button>
                                           </form>
                                       </div>
                       </div>          
@@ -33,7 +81,17 @@ const Feed = () => {
                                       <FeedOptions className = '' title='Audio event' Icon ={DateRange} colorName = 'rgb(202 138 4)'/>
                                       <FeedOptions className = '' title='Write article' Icon ={Newspaper} colorName = ' rgb(234 88 12 )'/>
                                 </div>
+
                      </div>
+                             {/* == Post Field === */}
+              {posts.map(post =>  (
+                     <Post  
+                            key={post.id} {...post} />
+              
+                        
+                ))
+                        
+               }  
           </div>
   )
 }
