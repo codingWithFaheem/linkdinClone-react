@@ -4,7 +4,7 @@ import {ThumbUpOffAlt, Comment , Autorenew , Send}  from '@mui/icons-material'
 import PostBtn from './PostBtn'
 const Post = ({name , description , message , image }) => {
   return (
-    <div className=' bg-white  ml-s4 rounded-xsl'> 
+    <div className=' bg-white  w-[30.2vw]  mt-4 ml-s4 rounded-xsl'> 
 
                 {/* ======= Post Header */}
                 <div className=" flex  items-center p-4 w-full cursor-pointer">
