@@ -4,7 +4,6 @@ import { Avatar } from '@mui/material';
 import { Create, Image ,SmartDisplay ,DateRange , Newspaper } from '@mui/icons-material'
 import { collection, getDocs ,addDoc} from 'firebase/firestore';
 import Post from './Post';
-
 import { db } from '../../config/firebase';
 const Feed = () => {
   const [posts , setPosts ] = useState([]);

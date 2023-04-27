@@ -1,16 +1,12 @@
 import React from 'react'
 import NavItem from './NavItem';
-import {selectUser} from '../../features/userSlice';
 import SearchIcon from '@mui/icons-material/Search';
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 import SupervisorAccountRoundedIcon from '@mui/icons-material/SupervisorAccountRounded';
 import BusinessCenterRoundedIcon from '@mui/icons-material/BusinessCenterRounded';
 import ForumRoundedIcon from '@mui/icons-material/ForumRounded';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
-import { useSelector } from 'react-redux';
-
 const Header = () => {
- const  user = useSelector(selectUser) ; 
 
   return (
     <header className='bg-white border-b-2 '>
@@ -32,7 +28,7 @@ const Header = () => {
                   <input type='text' className=' border-none outline-none bg-none'/>
               </div>
         </div>
-        {!user   ?
+        { /* !user   ?
         <div className='   w-[48%] flex items-center justify-evenly'>
               <NavItem  title='Home' Icon ={HomeRoundedIcon} />
                 <NavItem  title='My Networks' Icon ={SupervisorAccountRoundedIcon} />
@@ -40,7 +36,7 @@ const Header = () => {
               <button className=' border-l-2 border-gray-300 rounded-full hover:bg-gray-200  w-[7rem] h-[3.5rem]  text-[16px] font-bold text-gray-500 '>Join now </button>
               <button className="border-[1px] text-[19px] font-bold rounded-full border-blue-600 text-[#4e73db] w-[8rem] h-[3.5rem]">Sign in</button>
 
-      </div>:
+  </div>: */ }
                   <div className=' flex 
             items-center  
             justify-evenly
@@ -53,7 +49,7 @@ const Header = () => {
             <NavItem  title='Notification' Icon ={NotificationsRoundedIcon} />
             <NavItem  avatar='https://img.freepik.com/premium-photo/portrait-handsome-anime-boy-avatar-computer-graphic-background-2d-illustration_67092-1984.jpg?w=740'
                 title = 'me' />
-         </div>                                                                                                  }
+         </div>                                                                                                  
       </nav>
      </header>
   )
